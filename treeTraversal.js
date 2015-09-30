@@ -29,15 +29,15 @@ const node = (val, children = []) => { return {val: val, children: children} };
 
 const exampleTree2 =
 node(1, [
-  node(2, [node("a"), node('b', [node('b2'), node('b22')])]),
+  node(2, [node('a'), node('b', [node('b2'), node('b22')])]),
   node(3, [
-    node(4)
-        ]),
+    node(4),
+  ]),
   node(5)])
 
-const flattenByDepth = function(nodeList){
-  if(!Array.isArray(nodeList)) nodeList = [nodeList]
-  if(nodeList.length === 0) return nodeList
+const flattenByDepth = function (nodeList) {
+  if (!Array.isArray(nodeList)) nodeList = [nodeList]
+  if (nodeList.length === 0) return nodeList
 
   const [head, ...rest] = nodeList
   return [head].concat(flattenByDepth(head.children)).concat(flattenByDepth(rest))
@@ -48,8 +48,8 @@ const flattenByDepth = function(nodeList){
 // }
 
 const flattenByBreath = (nodeList, queue = []) => {
-  if(!Array.isArray(nodeList)) nodeList = [nodeList]
-  if(nodeList.length === 0) return nodeList
+  if (!Array.isArray(nodeList)) nodeList = [nodeList]
+  if (nodeList.length === 0) return nodeList
 
   // const [head, ...rest] = nodeList
   // map over nodeList, add children to queue, return nodelist and queue
@@ -59,9 +59,9 @@ const flattenByBreath = (nodeList, queue = []) => {
 
 const exampleTree =
   node(1, [
-    node(2, [node("a", [node('d')])]),
+    node(2, [node('a', [node('d')])]),
     node(3),
-    node(5, [node('b', [node('c')])])
+    node(5, [node('b', [node('c')])]),
     ])
 
 // console.log(flattenByDepth(exampleTree2))
